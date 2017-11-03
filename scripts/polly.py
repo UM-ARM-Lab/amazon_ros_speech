@@ -1,7 +1,9 @@
 #! /usr/bin/env python
 
 """Ros node for interfacing with AWS Polly service.
-This will say (as audio) any string sent to the "/polly" topic"""
+This node will say (as audio) any string sent to the "/polly" topic
+Will first say the command line argument
+"""
 
 
 from boto3 import Session
@@ -79,6 +81,12 @@ def polly_callback(ros_str):
     
 if __name__ == "__main__":
     rospy.init_node("polly")
+    print sys.argv
     rospy.loginfo("Polly ready for speach requests")
+
+    if len(sys.argv) > 0 and not sys.argv[1].startswith('__name:='):
+        rospy.loginfo("Saying startup string: " + sys.argv[1])
+        call_polly(sys.argv[1])
+    
     rospy.Subscriber("/polly", String, polly_callback)
     rospy.spin()
