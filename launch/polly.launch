@@ -1,0 +1,4 @@
+<launch>
+  <node name="polly" pkg="amazon_ros_speech" type="polly.py" output="screen"
+        args="'AWS ros service ready'"/>
+</launch>
