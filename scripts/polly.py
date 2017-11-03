@@ -84,7 +84,7 @@ if __name__ == "__main__":
     print sys.argv
     rospy.loginfo("Polly ready for speach requests")
 
-    if len(sys.argv) > 0 and not sys.argv[1].startswith('__name:='):
+    if len(sys.argv) > 1 and not sys.argv[1].startswith('__name:='):
         rospy.loginfo("Saying startup string: " + sys.argv[1])
         call_polly(sys.argv[1])
     
