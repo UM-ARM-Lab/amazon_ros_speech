@@ -65,7 +65,10 @@ def call_polly(words):
         os.startfile(output)
     else:
         # the following works on Mac and Linux. (Darwin = mac, xdg-open = linux).
-        opener = "open" if sys.platform == "darwin" else "xdg-open"
+        # opener = "open" if sys.platform == "darwin" else "xdg-open"
+        # However, it has difficulty finding the correct app when roslaunched remotely
+        # Hardcode audio program for now.
+        opener = "mpg123"
     subprocess.call([opener, output])
 
 def polly_callback(ros_str):
