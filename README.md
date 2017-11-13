@@ -9,3 +9,6 @@ Ros node handling calls to AWS TTS service
 - clone repo, build
 - `rosrun amazon_ros_speech polly.py`
 - send `std_msgs/String` to `/polly/` topic
+
+## Remote launch setup
+Follow the [ROS Multiple Machine](http://wiki.ros.org/ROS/Tutorials/MultipleMachines) tutorial if you want to run this node remotely.
