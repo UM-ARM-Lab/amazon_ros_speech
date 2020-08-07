@@ -1,0 +1,13 @@
+<launch>
+  <group>
+    <machine name="victorbackpack"
+             address="victorbackpack.local"
+             user="armlab"
+             env-loader="~/ros_env.sh"
+             />
+    <node name="polly" pkg="amazon_ros_speech" type="polly.py"
+          args="'Hello'"
+          machine="victorbackpack"
+          />
+  </group>
+</launch>
