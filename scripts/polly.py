@@ -75,7 +75,6 @@ def polly_callback(ros_str):
     char_count += len(words)
     if char_count > overload_char_limit:
         rospy.logerr("Speech limit reached")
-        call_polly(overload_str)
         return
     rospy.loginfo("Saying: " + words)
     call_polly(words)
@@ -83,7 +82,7 @@ def polly_callback(ros_str):
 if __name__ == "__main__":
     rospy.init_node("polly")
     print sys.argv
-    rospy.loginfo("Polly ready for speach requests")
+    rospy.loginfo("Polly ready for speech requests")
 
     if len(sys.argv) > 1 and not sys.argv[1].startswith('__name:='):
         rospy.loginfo("Saying startup string: " + sys.argv[1])
