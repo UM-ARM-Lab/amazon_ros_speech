@@ -81,7 +81,7 @@ def polly_callback(ros_str):
     
 if __name__ == "__main__":
     rospy.init_node("polly")
-    print sys.argv
+    print(sys.argv)
     rospy.loginfo("Polly ready for speech requests")
 
     if len(sys.argv) > 1 and not sys.argv[1].startswith('__name:='):
